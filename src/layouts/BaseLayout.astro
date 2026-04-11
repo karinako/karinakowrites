@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeNav?: string;
+}
+
+const {
+  title,
+  description = 'Writer and essayist based in Sydney.',
+  activeNav = '',
+} = Astro.props;
+
+const navLinks = [
+  { href: '/writing', label: 'Writing' },
+  { href: '/about',   label: 'About'   },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Open Graph -->
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type"        content="website" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="site-nav">
+        <div class="container">
+          <a href="/" class="logo">Karina Ko</a>
+          <ul>
+            {navLinks.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class={activeNav === link.label.toLowerCase() ? 'active' : ''}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <span>© {new Date().getFullYear()} Jane Doe</span>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://www.instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a>
+          <a href="/rss.xml">RSS</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

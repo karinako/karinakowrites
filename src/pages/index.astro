@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const featuredPieces = [
+    {
+    title:       'Blood We Cannot Wash Away',
+    excerpt:     'Every time she was about to gut a fish, she first whacked the fish’s head with the side of the knife blade to stun it. She said it was less cruel that way. Then she sliced their throat in between the gills.',
+    publication: 'Strange Horizons',
+    year:        '2021',
+    genre:       'Fiction',
+    href:        'https://strangehorizons.com/wordpress/issue/20-december-2021/',
+  },
+  {
+    title:       'An August for my July Mother',
+    excerpt:     'A woman forms a friendship to find her mother a lover',
+    publication: 'Island',
+    year:        '2021',
+    genre:       'Short Story',
+    href:        'https://islandmag.com/read/an-august-for-my-july-mother-by-karina-ko',
+  },
+  {
+    title:       'Things I Used to Believe',
+    excerpt:     'That as my mum warned, nine out of ten men were cheats and liars, the lot of them, especially the handsome ones. Except Jesus.',
+    publication: 'Mascara Literary Review',
+    year:        '2019',
+    genre:       'Short Story',
+    href:        'https://www.mascarareview.com/things-i-used-to-believe-by-karina-ko/',
+  },
+];
+---
+
+<BaseLayout title="Karina Ko — Writer" activeNav="">
+  <!-- Hero -->
+  <section class="section" style="padding-top: 5rem; padding-bottom: 5rem;">
+    <div class="container">
+      <p style="
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 1.5rem;
+      ">
+        Writer &amp; Essayist — Sydney
+      </p>
+      <h1 style="margin-bottom: 1.5rem; max-width: 15ch;">
+        Words that move people to think differently.
+      </h1>
+      <p style="font-size: 1.05rem; color: var(--color-muted); max-width: 52ch; margin-bottom: 2rem;">
+        I write long-form essays, literary journalism, and fiction exploring
+        identity, technology, and the spaces in between.
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/writing" class="btn btn-filled">Read my work</a>
+        <a href="/contact" class="btn">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured writing -->
+  <section class="section">
+    <div class="container">
+      <p style="
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 1.5rem;
+      ">
+        Featured writing
+      </p>
+      <div class="card-grid">
+        {featuredPieces.map(piece => (
+          <article class="writing-card">
+            <a href={piece.href}>
+              <div class="meta">
+                <span class="tag">{piece.genre}</span>
+                <span>{piece.publication}</span>
+                <span>{piece.year}</span>
+              </div>
+              <h3>{piece.title}</h3>
+              <p>{piece.excerpt}</p>
+            </a>
+          </article>
+        ))}
+      </div>
+      <p style="margin-top: 2rem;">
+        <a href="/writing" class="btn">All writing →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Mini bio -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+        <div>
+          <h2>About me</h2>
+          <p style="color: var(--color-muted);">
+            I'm a writer based in Sydney whose work has appeared in
+            <em>Strange Horizons</em>, <em>Island</em>, <em>Mascara Literary Review</em>.
+          </p>
+          <p style="color: var(--color-muted);">
+            I'm available for commissions, editorial collaborations,
+            and literary events.
+          </p>
+          <a href="/about" class="btn" style="margin-top:0.5rem;">More about me</a>
+        </div>
+        <div>
+          <h2>Say hello</h2>
+          <p style="color: var(--color-muted);">
+            Have a commission, collaboration, or just want to talk writing?
+            I'd love to hear from you.
+          </p>
+          <a href="/contact" class="btn" style="margin-top:0.5rem;">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

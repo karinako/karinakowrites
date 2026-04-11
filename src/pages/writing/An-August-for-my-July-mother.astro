@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const piece = {
+  title:       'An August for My July Mother',
+  genre:       'Short Story',
+  publication: 'Island',
+  date:        'August 2021',
+  readingTime: '5 min read',
+};
+---
+
+<BaseLayout
+  title={`${piece.title} — Karina Ko`}
+  description="A woman forms a friendship to find her mother a lover."
+  activeNav="writing"
+>
+  <article class="section">
+    <div class="container">
+
+      <!-- Back link -->
+      <p style="margin-bottom:2rem;">
+        <a href="/writing" style="
+          font-family: var(--font-sans);
+          font-size: 0.8rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: var(--color-muted);
+        ">← All writing</a>
+      </p>
+
+      <!-- Header -->
+      <header style="margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);">
+        <div class="meta" style="
+          display: flex;
+          gap: 0.75rem;
+          align-items: center;
+          margin-bottom: 1rem;
+          font-family: var(--font-sans);
+          font-size: 0.72rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: var(--color-muted);
+        ">
+          <span class="tag">{piece.genre}</span>
+          <span>{piece.publication}</span>
+          <span>{piece.date}</span>
+          <span>{piece.readingTime}</span>
+        </div>
+        <h1 style="max-width: 20ch;">{piece.title}</h1>
+      </header>
+
+      <!-- Prose body -->
+      <div class="prose" style="max-width: 65ch;">
+        <p>
+          
+        <blockquote>
+         My mother would like a man who didn’t let his supplements expire. A man who looked after himself so that he could look after her.
+She would approve of how he was heating his dinner in a bowl covered with a plate. She’d often said this minimises the radiation in food. 
+        </blockquote>
+
+        <p style="color: var(--color-muted); font-style: italic; margin-top: 3rem; font-size: 0.9rem;">
+        </p>
+      </div>
+
+    </div>
+  </article>
+</BaseLayout>

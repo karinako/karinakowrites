@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — Karina Ko"
+  description="Get in touch"
+  activeNav="contact"
+>
+  <section class="section">
+    <div class="container" style="max-width: 560px;">
+      <h1 style="margin-bottom: 0.5rem;">Contact</h1>
+      <p style="color: var(--color-muted); margin-bottom: 3rem;">
+        Get in touch
+      </p>
+
+      <!-- Instagram link -->
+      <a
+        href="https://www.instagram.com/halfhere"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="instagram-link"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20" height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/>
+        </svg>
+        <span>Follow on Instagram</span>
+        <span class="ig-arrow">↗</span>
+      </a>
+
+      <!-- Contact form -->
+      <div class="form-card">
+        <h2 style="font-size: 1rem; margin-bottom: 1.5rem;">Send a message</h2>
+
+        <!--
+          Uses Netlify Forms (works on Cloudflare Pages too via the data-netlify attribute).
+          On submit it redirects to /contact/success — create that page or change action="".
+          For non-Netlify hosts see README for Formspree / custom endpoint alternatives.
+        -->
+        <form
+          method="POST"
+          action="https://formspree.io/f/xykbrpyq"
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" required placeholder="Your name" />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required placeholder="you@example.com" />
+          </div>
+
+          <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select a topic…</option>
+              <option value="commission">Commission or assignment</option>
+              <option value="collaboration">Editorial collaboration</option>
+              <option value="speaking">Speaking or event</option>
+              <option value="press">Press or interview</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required rows="5" placeholder="Tell me what you have in mind…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-filled" style="cursor:pointer; font-family:var(--font-sans);">
+            Send message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.65rem 1.1rem;
+    background: var(--color-surface);
+    margin-bottom: 3rem;
+    transition: border-color 0.15s;
+    width: fit-content;
+  }
+  .instagram-link:hover {
+    border-color: var(--color-accent);
+    opacity: 1;
+  }
+  .ig-arrow {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    margin-left: auto;
+    padding-left: 1.5rem;
+  }
+
+  .form-card {
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 2rem;
+    background: var(--color-surface);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+
+  textarea {
+    font-family: var(--font-serif);
+    line-height: 1.65;
+    resize: vertical;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6860' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+  }
+</style>

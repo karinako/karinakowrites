@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// In a real site you'd pull these from Astro Content Collections.
+// For now they're defined inline — easy to move later.
+const pieces = [
+    {
+    slug:        'Blood-We-Cannot-Wash-Away',
+    title:       'Blood We Cannot Wash Away',
+    excerpt:     'Every time she was about to gut a fish, she first whacked the fish’s head with the side of the knife blade to stun it. She said it was less cruel that way. Then she sliced their throat in between the gills.',
+    publication: 'Strange Horizons',
+    date:        '2021-12',
+    genre:       'Short Story',
+  },
+  {
+    slug:        'An-August-for-my-July-mother',
+    title:       'An August for my July mother',
+    excerpt:     'My mother would like a man who didn’t let his supplements expire. A man who looked after himself so that he could look after her.
+She would approve of how he was heating his dinner in a bowl covered with a plate. She’d often said this minimises the radiation in food.',
+    publication: 'Island',
+    date:        '2021-08',
+    genre:       'Short Story',
+  },
+  {
+    slug:        'Things-I-Used-to-Believe',
+    title:       'Things I Used to Believe',
+    excerpt:     'That as my mum warned, nine out of ten men were cheats and liars, the lot of them, especially the handsome ones. Except Jesus.',
+    publication: 'Mascara Literary Review',
+    date:        '2019-03',
+    genre:       'Criticism',
+  },
+];
+
+// Sort newest first
+pieces.sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<BaseLayout title="Writing — Karina Ko" activeNav="writing">
+  <section class="section">
+    <div class="container">
+      <h1 style="margin-bottom: 0.5rem;">Writing</h1>
+      <p style="color: var(--color-muted); margin-bottom: 2.5rem;">
+        Essays, fiction, and criticism.
+      </p>
+
+      <div class="card-grid">
+        {pieces.map(piece => (
+          <article class="writing-card">
+            <a href={piece.href} target="_blank" rel="noopener noreferrer">
+              <div class="meta">
+                <span class="tag">{piece.genre}</span>
+                <span>{piece.publication}</span>
+                <span>{piece.date.substring(0, 4)}</span>
+              </div>
+              <h3>{piece.title}</h3>
+              <p>{piece.excerpt}</p>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
