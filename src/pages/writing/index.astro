@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { readingTime, writingPieces } from '../../data/writingPieces';
+import { writingPieces } from '../../data/writingPieces';
 
 // Sort newest first
 const pieces = [...writingPieces].sort((a, b) => b.date.localeCompare(a.date));
@@ -21,7 +21,6 @@ const pieces = [...writingPieces].sort((a, b) => b.date.localeCompare(a.date));
                 <span class="tag">{piece.genre}</span>
                 <span>{piece.publication}</span>
                 <span>{piece.date.substring(0, 4)}</span>
-                {piece.wordCount ? <span>{readingTime(piece.wordCount)}</span> : null}
               </div>
               <h3>{piece.title}</h3>
               <p>{piece.excerpt}</p>

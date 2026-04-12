@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { readingTime, writingPieces } from '../data/writingPieces';
+import { writingPieces } from '../data/writingPieces';
 
 const featuredPieces = writingPieces.filter(piece => piece.featured);
 ---
@@ -54,7 +54,6 @@ const featuredPieces = writingPieces.filter(piece => piece.featured);
                 <span class="tag">{piece.genre}</span>
                 <span>{piece.publication}</span>
                 <span>{piece.year}</span>
-                {piece.wordCount ? <span>{readingTime(piece.wordCount)}</span> : null}
               </div>
               <h3>{piece.title}</h3>
               <p>{piece.excerpt}</p>
