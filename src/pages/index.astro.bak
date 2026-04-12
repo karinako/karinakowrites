@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { writingPieces } from '../data/writingPieces';
+
+const featuredPieces = writingPieces.filter(piece => piece.featured);
+---

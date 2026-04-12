@@ -9,65 +9,80 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;">
+      <div class="about-grid">
 
         <div>
           <h1 style="margin-bottom: 1.5rem;">About</h1>
 
           <div class="prose">
             <p>
-              Karina Ko is an award-winning fiction writer from Gadigal/Sydney, Australia. She writes about female monsters and things she's afraid of. She particularly loves short stories and her writing tends to span across literary and speculative fiction. It tends to be dark but she's thinking about trying to be more funny. We'll see.
-            </p>
+              Karina Ko is a fiction writer from Gadigal/Sydney, Australia. She writes about female monsters and things she's afraid of. She particularly loves short stories and her writing tends to span across literary and speculative fiction.
             <p>
               Her short stories have been published in Strange Horizons, Island, Mascara Literary Review and elsewhere. She’s been awarded the Deborah Cass Prize, a Varuna scholarship for a novel-writing course, a Varuna fellowship and recognition as a Writing NSW Emerging Writers mentee.
             </p>
             <p> If you ever meet her, she's probably wearing second-hand clothes while salvaging objects from the street.
             </p>
           </div>
-
+          <!--
           <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
-            <h2 style="font-size: 1rem; margin-bottom: 1rem;">Representation</h2>
+            <h2 style="font-size: 1rem; margin-bottom: 1rem;"> </h2>
             <p style="color: var(--color-muted); font-family: var(--font-sans); font-size: 0.9rem;">
-              For book representation, please contact:<br>
-              <strong style="color: var(--color-text);">Agent Name</strong> at Agency Name<br>
-              <a href="mailto:agent@agency.com">agent@agency.com</a>
+              <br>
+              <strong style="color: var(--color-text);"> </strong>  <br>
             </p>
           </div>
+          -->
         </div>
 
-        <!-- Sidebar -->
-        <aside style="position: sticky; top: calc(var(--nav-h) + 2rem);">
-          <!-- Photo placeholder -->
-          <div style="
-            aspect-ratio: 3/4;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--color-muted);
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 1rem;
-          ">
-            Replace with your photo<br>
-            <code style="font-size:0.7rem; margin-top:0.5rem; display:block;">public/photo.jpg</code>
-          </div>
-
-          <div style="font-family: var(--font-sans); font-size: 0.82rem; color: var(--color-muted);">
-            <p style="margin-bottom: 0.25rem;"><strong style="color:var(--color-text);">Based in</strong></p>
-            <p>Sydney, Australia</p>
-            <p style="margin-top:1rem; margin-bottom: 0.25rem;"><strong style="color:var(--color-text);">Writing since</strong></p>
-            <p>2018</p>
-            <p style="margin-top:1rem; margin-bottom: 0.25rem;"><strong style="color:var(--color-text);">Focus</strong></p>
-            <p>Essays, fiction, cultural criticism</p>
-          </div>
+        <!-- Photo sidebar -->
+        <aside class="photo-sidebar">
+          <img
+            src="/karinaprofile.jpg"
+            alt="Karina Ko"
+            class="profile-photo"
+          />
         </aside>
 
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .photo-sidebar {
+    position: sticky;
+    top: calc(var(--nav-h) + 2rem);
+  }
+
+  .profile-photo {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 2px;
+    border: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .photo-sidebar {
+      order: 2;
+      position: static;
+      text-align: center;
+    }
+
+    .profile-photo {
+      max-width: 200px;
+      margin: 2rem auto 0;
+    }
+  }
+</style>

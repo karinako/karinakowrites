@@ -16,7 +16,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- Instagram link -->
       <a
-        href="https://www.instagram.com/halfhere"
+        href="https://www.instagram.com/karinakowrites"
         target="_blank"
         rel="noopener noreferrer"
         class="instagram-link"
@@ -43,15 +43,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Contact form -->
       <div class="form-card">
         <h2 style="font-size: 1rem; margin-bottom: 1.5rem;">Send a message</h2>
-
-        <!--
-          Uses Netlify Forms (works on Cloudflare Pages too via the data-netlify attribute).
-          On submit it redirects to /contact/success — create that page or change action="".
-          For non-Netlify hosts see README for Formspree / custom endpoint alternatives.
-        -->
         <form
           method="POST"
           action="https://formspree.io/f/xykbrpyq"
+          >
           <div class="field">
             <label for="name">Name</label>
             <input id="name" type="text" name="name" required placeholder="Your name" />
@@ -64,19 +59,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <div class="field">
             <label for="subject">Subject</label>
-            <select id="subject" name="subject">
-              <option value="">Select a topic…</option>
-              <option value="commission">Commission or assignment</option>
-              <option value="collaboration">Editorial collaboration</option>
-              <option value="speaking">Speaking or event</option>
-              <option value="press">Press or interview</option>
-              <option value="other">Something else</option>
-            </select>
+            <input id="subject" type="text" name="subject" placeholder="e.g. Commission, collaboration, event…" />
           </div>
 
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" required rows="5" placeholder="Tell me what you have in mind…"></textarea>
+            <textarea id="message" name="message" required rows="5" placeholder="Hello…"></textarea>
           </div>
 
           <button type="submit" class="btn btn-filled" style="cursor:pointer; font-family:var(--font-sans);">
@@ -103,7 +91,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: var(--color-surface);
     margin-bottom: 3rem;
     transition: border-color 0.15s;
-    width: fit-content;
+    width: auto;
+    max-width: 100%;
   }
   .instagram-link:hover {
     border-color: var(--color-accent);
@@ -145,10 +134,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   input[type="text"],
   input[type="email"],
-  select,
   textarea {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0.6rem 0.75rem;
     border: 1px solid var(--color-border);
     border-radius: 3px;
@@ -166,17 +154,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   input:focus,
-  select:focus,
   textarea:focus {
     border-color: var(--color-accent);
   }
 
-  select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6860' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    padding-right: 2rem;
+  /* Mobile optimization */
+  @media (max-width: 480px) {
+    .form-card {
+      padding: 1rem;
+      margin-left: calc(-1 * var(--space-sm));
+      margin-right: calc(-1 * var(--space-sm));
+      width: calc(100% + var(--space-sm) * 2);
+      border-radius: 0.5rem;
+    }
+
+    .instagram-link {
+      width: 100%;
+      justify-content: center;
+      max-width: 100%;
+    }
+
+    .ig-arrow {
+      position: absolute;
+      margin-left: 0;
+      padding-left: 0;
+    }
   }
 </style>

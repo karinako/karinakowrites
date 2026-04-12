@@ -230,3 +230,45 @@ a:hover { opacity: 0.75; }
   color: white;
   opacity: 1;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 2rem 0;
+  }
+
+  .prose {
+    font-size: 1rem;
+  }
+
+  .writing-card {
+    padding: 1rem;
+  }
+
+  .writing-card .meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .writing-card .meta span {
+    flex: none;
+  }
+
+  .writing-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .writing-card p {
+    font-size: 0.95rem;
+  }
+
+  .btn,
+  .site-nav ul a,
+  .instagram-link {
+    min-height: 44px;
+    padding: 0.85rem 1rem;
+  }
+
+  .site-nav ul {
+    gap: 0.75rem;
+  }
+}
