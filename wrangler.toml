@@ -1,9 +1,10 @@
-# Cloudflare Pages configuration
-# Deploy via: npx wrangler pages deploy dist --project-name writer-portfolio
+# Cloudflare Pages/Workers unified configuration
+# Deploy via: npx wrangler deploy
 
 name = "writer-portfolio"
-pages_build_output_dir = "dist"
+compatibility_date = "2024-04-12"
+
+[assets]
+directory = "./dist"
 
 # If you want to add Cloudflare Workers / KV / D1 later, configure them here.
-# For a purely static site this file is optional — Cloudflare Pages auto-detects
-# the dist folder when you connect your GitHub repo in the dashboard.
