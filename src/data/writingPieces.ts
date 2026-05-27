@@ -7,6 +7,19 @@ export function readingTime(wordCount) {
 
 export const writingPieces = [
   {
+    slug: 'Protocol-for-a-First-Date',
+    title: 'Protocol for a First Date',
+    excerpt: 'Wear clothes. And other instructions for a first date - or is it more than a date?',
+    publication: '3:AM Magazine',
+    date: '2026-05',
+    year: '2026',
+    genre: 'Short Story',
+    href: 'https://www.3ammagazine.com/3am/protocol-for-a-first-date/',
+    wordCount: 1105,
+    featured: true,
+    readingTime: readingTime(1105),
+  },
+  {
     slug: 'Blood-We-Cannot-Wash-Away',
     title: 'Blood We Cannot Wash Away',
     excerpt: 'Every time she was about to gut a fish, she first whacked the fish\'s head with the side of the knife blade to stun it. She said it was less cruel that way. Then she sliced their throat in between the gills.',
@@ -17,6 +30,7 @@ export const writingPieces = [
     href: 'https://strangehorizons.com/wordpress/issue/20-december-2021/',
     wordCount: 3899,
     featured: true,
+    readingTime: readingTime(3899),
   },
   {
     slug: 'An-August-for-my-July-mother',
@@ -29,11 +43,13 @@ export const writingPieces = [
     href: 'https://islandmag.com/read/an-august-for-my-july-mother-by-karina-ko',
     wordCount: 1385,
     featured: true,
+    readingTime: readingTime(1385),
   },
   {
     slug: 'Things-I-Used-to-Believe',
     title: 'Things I Used to Believe',
     excerpt: 'Winner of the 2018 Deborah Cass Prize',
+    excerpt2: 'That as my mum warned, nine out of ten men were cheats and liars, the lot of them, especially the handsome ones. Except Jesus.',
     publication: 'Mascara Literary Review',
     date: '2019-03',
     year: '2019',
@@ -41,5 +57,6 @@ export const writingPieces = [
     href: 'https://www.mascarareview.com/things-i-used-to-believe-by-karina-ko/',
     wordCount: 1246,
     featured: true,
+    readingTime: readingTime(1246),
   },
 ];
