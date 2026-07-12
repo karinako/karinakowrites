@@ -1,13 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { writingPieces } from '../../data/writingPieces';
 
-const piece = {
-  title:       'An August for My July Mother',
-  genre:       'Short Story',
-  publication: 'Island',
-  date:        'August 2021',
-  readingTime: '5 min read',
-};
+const piece = writingPieces.find(p => p.slug === 'An-August-for-my-July-mother');
 ---
 
 <BaseLayout
@@ -45,8 +40,8 @@ const piece = {
         ">
           <span class="tag">{piece.genre}</span>
           <span>{piece.publication}</span>
-          <span>{piece.date}</span>
-          <span>{piece.readingTime}</span>
+          <span>{new Date(piece.date + '-01').toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+          {piece.readingTime && <span>{piece.readingTime}</span>}
         </div>
         <h1 style="max-width: 20ch;">{piece.title}</h1>
       </header>

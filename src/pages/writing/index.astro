@@ -21,6 +21,7 @@ const pieces = [...writingPieces].sort((a, b) => b.date.localeCompare(a.date));
                 <span class="tag">{piece.genre}</span>
                 <span>{piece.publication}</span>
                 <span>{piece.date.substring(0, 4)}</span>
+                {piece.readingTime && <span>{piece.readingTime}</span>}
               </div>
               <h3>{piece.title}</h3>
               <p>{piece.excerpt}</p>
